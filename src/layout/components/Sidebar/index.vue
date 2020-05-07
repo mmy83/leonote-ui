@@ -21,7 +21,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Logo from './Logo'
+import Logo from '../Logo'
 import SidebarItem from './SidebarItem'
 import variables from '@/styles/variables.scss'
 
@@ -42,9 +42,6 @@ export default {
         return meta.activeMenu
       }
       return path
-    },
-    showLogo() {
-      return this.$store.state.settings.sidebarLogo
     },
     variables() {
       return variables
