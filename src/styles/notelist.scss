@@ -1,0 +1,139 @@
+#app {
+  
+    .note-list {
+      transition: width 0.28s;
+      width: $sideBarWidth !important;
+      background-color: $noteListBg;
+      height: 100%;
+      position: fixed;
+    //   font-size: 0px;
+      top: 50px;
+      bottom: 0;
+      left: $sideBarWidth;
+      z-index: 1001;
+      overflow: hidden;
+  
+      .note-list-header {
+          position: relative;
+          top: 0;
+          height: 56px;
+          width: 100%;
+          background-color: #eeeeee;
+          border-bottom: 1px solid #ebeff2;
+          line-height: 24px;
+        //   height: 36px;
+        .note-list-header-title {
+            float: left;
+            height: 100%;
+            width: calc(100%-24px);
+            color: #000000;
+        }
+        .svg-icon {
+            float: right;
+            width: 24px;
+            height: 24px;
+            margin: 16px;
+        }
+      }
+      .note-list-item {
+        position: relative;
+        height: 110px;
+        overflow: hidden;
+        cursor: pointer;
+        border: 1px solid #ebeff2;
+        border-radius: 3px;
+        margin-top: 5px;
+        background-color: #fff;
+
+        &:hover {
+            background-color: $noteListHover !important;
+        }
+        .note-list-item-title {
+            border-bottom: 1px dashed #ebeff2;
+            line-height: 22px;
+            width: 100%;
+        }
+
+      }
+
+
+      // reset element-ui css
+      .horizontal-collapse-transition {
+        transition: 0s width ease-in-out, 0s padding-left ease-in-out, 0s padding-right ease-in-out;
+      }
+  
+      .scrollbar-wrapper {
+        overflow-x: hidden !important;
+      }
+  
+      .el-scrollbar__bar.is-vertical {
+        right: 0px;
+      }
+  
+      .el-scrollbar {
+        height: 100%;
+      }
+  
+      &.has-logo {
+        .el-scrollbar {
+          height: calc(100% - 50px);
+        }
+      }
+  
+      .is-horizontal {
+        display: none;
+      }
+  
+      a {
+        display: inline-block;
+        width: 100%;
+        overflow: hidden;
+      }
+  
+      .svg-icon {
+        margin-right: 16px;
+      }
+  
+      .el-menu {
+        border: none;
+        height: 100%;
+        width: 100% !important;
+      }
+  
+      // menu hover
+      .submenu-title-noDropdown,
+      .el-submenu__title {
+        &:hover {
+          background-color: $noteListHover !important;
+        }
+      }
+  
+      .is-active>.el-submenu__title {
+        color: $subMenuActiveText !important;
+      }
+  
+      & .nest-menu .el-submenu>.el-submenu__title,
+      & .el-submenu .el-menu-item {
+        min-width: $sideBarWidth !important;
+        background-color: $subMenuBg !important;
+  
+        &:hover {
+          background-color: $subMenuHover !important;
+        }
+      }
+    }
+  
+  
+    .hideSidebar {
+      .note-list {
+        left: 54px !important;
+      }  
+
+    }
+
+  
+
+  }
+  
+  
+  
