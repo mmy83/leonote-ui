@@ -14,7 +14,7 @@
     height: 100%;
     position: fixed;
     font-size: 0px;
-    top: 0;
+    top: 50px;
     bottom: 0;
     left: 0;
     z-index: 1001;
@@ -90,7 +90,9 @@
     .sidebar-container {
       width: 54px !important;
     }
-
+    .sidebar-logo-container {
+      width: 54px !important;
+    }
     .main-container {
       margin-left: 54px;
     }

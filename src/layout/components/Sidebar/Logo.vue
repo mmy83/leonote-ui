@@ -32,6 +32,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  @import "~@/styles/variables.scss";
+
 .sidebarLogoFade-enter-active {
   transition: opacity 1.5s;
 }
@@ -43,12 +45,14 @@ export default {
 
 .sidebar-logo-container {
   position: relative;
-  width: 100%;
+  /*width: 100%;*/
+  width: $sideBarWidth;
   height: 50px;
   line-height: 50px;
   background: #2b2f3a;
   text-align: center;
   overflow: hidden;
+  float: left;
 
   & .sidebar-logo-link {
     height: 100%;

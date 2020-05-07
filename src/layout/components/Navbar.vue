@@ -1,5 +1,6 @@
 <template>
   <div class="navbar">
+    <logo v-if="showLogo" :collapse="isCollapse" />
     <hamburger :is-active="sidebar.opened" class="hamburger-container" @toggleClick="toggleSideBar" />
 
     <breadcrumb class="breadcrumb-container" />
@@ -35,17 +36,25 @@
 import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
+import Logo from "@/layout/components/Sidebar/Logo";
 
 export default {
   components: {
     Breadcrumb,
-    Hamburger
+    Hamburger,
+    Logo
   },
   computed: {
     ...mapGetters([
       'sidebar',
       'avatar'
-    ])
+    ]),
+    showLogo() {
+      return this.$store.state.settings.sidebarLogo
+    },
+    isCollapse() {
+      return !this.sidebar.opened
+    }
   },
   methods: {
     toggleSideBar() {
@@ -64,7 +73,8 @@ export default {
   height: 50px;
   overflow: hidden;
   position: relative;
-  background: #fff;
+  /*background: #fff;*/
+  background-color: #1f2d3d;
   box-shadow: 0 1px 4px rgba(0,21,41,.08);
 
   .hamburger-container {
