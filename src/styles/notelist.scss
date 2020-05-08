@@ -5,7 +5,7 @@
       width: $noteListWidth !important;
       //background-color: $noteListBg;
       background-color: #fff;
-      height: 100%;
+      height: calc(100% - 50px);
       position: fixed;
     //   font-size: 0px;
       top: 50px;
@@ -89,7 +89,7 @@
       }
 
       .el-scrollbar {
-        height: 100%;
+        height: calc(100% - 56px);
       }
 
       &.has-logo {
