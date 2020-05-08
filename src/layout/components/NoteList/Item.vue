@@ -3,9 +3,9 @@
     <div class="note-list-item">
       <div class="note-list-item-title">{{item.title}}</div>
       <div class="note-list-item-info">
-        <i class="el-icon-notebook-2" />
+        <i class="fa fa-book" />
         <span>{{item.notebook}}</span>
-        <i class="el-icon-time" />
+        <i class="fa fa-clock-o" />
         <span>{{item.date}}</span>
       </div>
       <div>
