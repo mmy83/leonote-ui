@@ -1,8 +1,15 @@
 <template>
-  <a href="">
+  <a :href="['/note/'+item.id]">
     <div class="note-list-item">
       <div class="note-list-item-title">{{item.title}}</div>
-      <div class="note-list-item-info"><span>{{item.notebook}}</span><span>{{item.date}}</span></div>
+      <div class="note-list-item-info">
+        <i class="el-icon-notebook-2" />
+        <span>{{item.notebook}}</span>
+        <i class="el-icon-time" />
+        <span>{{item.date}}</span>
+      </div>
+      <div>
+      </div>
     </div>
   </a>
 </template>
