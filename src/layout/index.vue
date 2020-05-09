@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { Navbar, Sidebar, AppMain, NoteList } from './components'
+import { Navbar, AppMain, NoteList } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
 import NoteBook from '@/layout/components/NoteBook/index'
 
@@ -24,7 +24,6 @@ export default {
   components: {
     NoteBook,
     Navbar,
-    Sidebar,
     AppMain,
     NoteList
   },

@@ -18,9 +18,8 @@ const notebooks = [
 
 export default [
 
-  // get user info
   {
-    url: '/note',
+    url: '/notebook',
     type: 'get',
     response: config => {
       // mock error

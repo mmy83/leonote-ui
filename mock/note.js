@@ -1,14 +1,14 @@
 
 const notes = [
-  { 'id': 1, 'notebook': { 'id': 1, 'notebook_name': 'my book 1' }, 'note_name': 'my note 1' },
-  { 'id': 2, 'notebook': { 'id': 1, 'notebook_name': 'my book 1' }, 'note_name': 'my note 2' },
-  { 'id': 3, 'notebook': { 'id': 1, 'notebook_name': 'my book 1' }, 'note_name': 'my note 3' },
-  { 'id': 4, 'notebook': { 'id': 1, 'notebook_name': 'my book 1' }, 'note_name': 'my note 4' },
-  { 'id': 5, 'notebook': { 'id': 1, 'notebook_name': 'my book 1' }, 'note_name': 'my note 5' },
-  { 'id': 6, 'notebook': { 'id': 1, 'notebook_name': 'my book 1' }, 'note_name': 'my note 6' },
-  { 'id': 7, 'notebook': { 'id': 1, 'notebook_name': 'my book 1' }, 'note_name': 'my note 7' },
-  { 'id': 8, 'notebook': { 'id': 1, 'notebook_name': 'my book 1' }, 'note_name': 'my note 8' },
-  { 'id': 9, 'notebook': { 'id': 1, 'notebook_name': 'my book 1' }, 'note_name': 'my note 9' }
+  { 'id': 1, 'notebook': { 'id': 1, 'notebook_name': 'my book 1' }, 'title': 'my note 1', 'created': '2020-05-09 12:12:12' },
+  { 'id': 2, 'notebook': { 'id': 1, 'notebook_name': 'my book 1' }, 'title': 'my note 2', 'created': '2020-05-09 12:12:12' },
+  { 'id': 3, 'notebook': { 'id': 1, 'notebook_name': 'my book 1' }, 'title': 'my note 3', 'created': '2020-05-09 12:12:12' },
+  { 'id': 4, 'notebook': { 'id': 1, 'notebook_name': 'my book 1' }, 'title': 'my note 4', 'created': '2020-05-09 12:12:12' },
+  { 'id': 5, 'notebook': { 'id': 1, 'notebook_name': 'my book 1' }, 'title': 'my note 5', 'created': '2020-05-09 12:12:12' },
+  { 'id': 6, 'notebook': { 'id': 1, 'notebook_name': 'my book 1' }, 'title': 'my note 6', 'created': '2020-05-09 12:12:12' },
+  { 'id': 7, 'notebook': { 'id': 1, 'notebook_name': 'my book 1' }, 'title': 'my note 7', 'created': '2020-05-09 12:12:12' },
+  { 'id': 8, 'notebook': { 'id': 1, 'notebook_name': 'my book 1' }, 'title': 'my note 8', 'created': '2020-05-09 12:12:12' },
+  { 'id': 9, 'notebook': { 'id': 1, 'notebook_name': 'my book 1' }, 'title': 'my note 9', 'created': '2020-05-09 12:12:12' }
 ]
 
 export default [

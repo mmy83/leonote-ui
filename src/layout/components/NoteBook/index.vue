@@ -39,9 +39,9 @@
 
           </template>
 
-          <el-menu-item v-for="tag in tags">
-            <a :href="['#/tag/'+tag.id]">{{tag.tag_name}}</a>
-          </el-menu-item>
+<!--          <el-menu-item v-for="tag in tags">-->
+<!--            <a :href="['#/tag/'+tag.id]">{{tag.tag_name}}</a>-->
+<!--          </el-menu-item>-->
 
         </el-submenu>
 
@@ -69,7 +69,8 @@ export default {
   components: { NoteBookItem },
   computed: {
     ...mapGetters([
-      'sidebar'
+      'sidebar',
+      'notebooks'
     ]),
     routes() {
       return this.$router.options.routes
@@ -88,60 +89,6 @@ export default {
     },
     isCollapse() {
       return !this.sidebar.opened
-    }
-  },
-  data: () => {
-    return {
-      notebooks: [
-        {
-          'id': 1,
-          'notebook_name': '我的笔记 1',
-          'childrens': [
-            {
-              'id': 2,
-              'notebook_name': '我的笔记 2',
-              'childrens': [
-                {
-                  'id': 3,
-                  'notebook_name': '我的笔记 3',
-                  'childrens': []
-                }
-              ]
-            }
-          ]
-        },
-        {
-          'id': 4,
-          'notebook_name': '我的笔记 4',
-          'childrens': [
-            {
-              'id': 5,
-              'notebook_name': '我的笔记 5',
-              'childrens': [
-                {
-                  'id': 6,
-                  'notebook_name': '我的笔记 6',
-                  'childrens': []
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      'tags': [
-        {
-          'id': 1,
-          'tag_name': 't1'
-        },
-        {
-          'id': 2,
-          'tag_name': 't2'
-        },
-        {
-          'id': 3,
-          'tag_name': 't3'
-        }
-      ]
     }
   }
 }
