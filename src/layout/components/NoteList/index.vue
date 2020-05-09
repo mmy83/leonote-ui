@@ -1,6 +1,6 @@
 <template>
   <div>
-    <note-book-title>my notebook</note-book-title>
+    <note-book-title>{{ currentNoteBook.notebook_name }}</note-book-title>
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <item v-for="note in notes" :item="note" />
     </el-scrollbar>
@@ -20,7 +20,8 @@ export default {
   computed: {
     ...mapGetters([
       'sidebar',
-      'notes'
+      'notes',
+      'currentNoteBook'
     ])
   }
 }

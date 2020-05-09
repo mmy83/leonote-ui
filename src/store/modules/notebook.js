@@ -3,7 +3,7 @@ import { getNoteBooks } from '@/api/notebook'
 const getDefaultState = () => {
   return {
     notebooks: [],
-    notebookid: 0
+    currentNoteBook: {}
   }
 }
 
@@ -13,9 +13,10 @@ const mutations = {
   SET_NOTEBOOKS: (state, notebooks) => {
     state.notebooks = notebooks
   },
-  SET_NOTEBOOK: (state, notebook) => {
-    state.notebook = notebook
+  SET_CURRENTNOTEBOOK: (state, notebook) => {
+    state.currentNoteBook = notebook
   }
+
 }
 
 const actions = {
@@ -32,7 +33,7 @@ const actions = {
         const { notebooks } = data
 
         commit('SET_NOTEBOOKS', notebooks)
-        commit('SET_NOTEBOOK', notebooks[0])
+        commit('SET_CURRENTNOTEBOOK', notebooks[0])
 
         resolve(data)
       }).catch(error => {
@@ -40,6 +41,10 @@ const actions = {
       })
     })
   },
+  setCurrentNoteBook({ commit }, notebook) {
+    console.log(notebook)
+    commit('SET_CURRENTNOTEBOOK', notebook)
+  }
 
 }
 

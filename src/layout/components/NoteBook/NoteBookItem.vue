@@ -2,7 +2,7 @@
   <div>
     <template v-if="!hasChild(item)">
       <el-menu-item :index="resolvePath(item.id)" :class="{'submenu-title-noDropdown':!isNest}">
-        <item :title="item.notebook_name" :to="resolvePath(item.id)"/>
+        <item :title="item.notebook_name" :to="resolvePath(item.id)" @clickNoteBook="setCurrentNoteBook(item)"/>
       </el-menu-item>
     </template>
 
@@ -26,6 +26,7 @@
 import Item from './Item'
 import { isExternal } from '@/utils/validate'
 import path from 'path'
+import store from '@/store'
 
 export default {
   name: 'NoteBookItem',
@@ -50,6 +51,10 @@ export default {
     },
     resolvePath(routePath) {
       return path.resolve('#/note/' + routePath)
+    },
+    setCurrentNoteBook(notebook) {
+      this.$store.dispatch('notebook/setCurrentNoteBook', notebook)
+      this.$store.dispatch('note/getNoteList', notebook.id)
     }
   }
 }

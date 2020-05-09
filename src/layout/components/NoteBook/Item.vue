@@ -1,16 +1,18 @@
 <template>
-  <app-link :to="to">
-    {{title}}
-  </app-link>
+<!--  <app-link :to="to">-->
+  <span @click="clickNoteBook">
+    {{ title }}
+  </span>
+<!--  </app-link>-->
 </template>
 
 <script>
-import AppLink from './Link'
+// import AppLink from './Link'
 
 export default {
   name: 'Item',
   // functional: true,
-  components: { AppLink },
+  // components: { AppLink },
   props: {
     title: {
       type: String,
@@ -19,6 +21,14 @@ export default {
     to: {
       type: String,
       default: ''
+    }
+  },
+  methods: {
+    // setCurrentNoteBook: (notebook_id) =>{
+    //   this.$emit('setCurrentNoteBook')
+    // }
+    clickNoteBook() {
+      this.$emit('clickNoteBook')
     }
   }
 }
