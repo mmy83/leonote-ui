@@ -18,22 +18,14 @@
             <span>我的笔记本</span>
           </template>
 
-          <!-- <el-menu-item v-if="!isCollapse">-->
-          <!-- <template slot="title">-->
-          <!-- <div class="folderHeader">-->
-          <!-- <i class="fa fa-plus" />-->
-          <!-- </div>-->
-          <!-- </template>-->
-          <!-- </el-menu-item>-->
+          <div class="folderHeader" v-if="!isCollapse">
+            <i class="fa fa-plus" />
+          </div>
 
           <!-- 搜索 -->
-          <!--              <el-menu-item v-if="!isCollapse">-->
-          <!--                <template slot="title">-->
-          <!--                  <div class="search-notebook">-->
-          <!--                    <el-input placeholder="查找笔记本"></el-input>-->
-          <!--                  </div>-->
-          <!--                </template>-->
-          <!--              </el-menu-item>-->
+          <div class="search-notebook" v-if="!isCollapse">
+            <el-input placeholder="查找笔记本"></el-input>
+          </div>
 
           <note-book-item v-for="notebook in notebooks" :key="notebook.id" :item="notebook" />
         </el-submenu>
@@ -48,7 +40,7 @@
           </template>
 
           <el-menu-item v-for="tag in tags">
-            <span>{{tag.tag_name}}</span>
+            <a :href="['#/tag/'+tag.id]">{{tag.tag_name}}</a>
           </el-menu-item>
 
         </el-submenu>

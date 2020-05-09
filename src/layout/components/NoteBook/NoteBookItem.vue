@@ -49,7 +49,7 @@ export default {
       }
     },
     resolvePath(routePath) {
-      return path.resolve('/note/' + routePath)
+      return path.resolve('#/note/' + routePath)
     }
   }
 }
