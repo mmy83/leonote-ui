@@ -6,7 +6,8 @@
     </div>
 
     <div class="main-container">
-      <sidebar class="sidebar-container" />
+      <note-book class="notebook-container" />
+<!--      <sidebar class="sidebar-container" />-->
       <note-list class="note-list" />
       <app-main />
     </div>
@@ -16,10 +17,12 @@
 <script>
 import { Navbar, Sidebar, AppMain, NoteList } from './components'
 import ResizeMixin from './mixin/ResizeHandler'
+import NoteBook from '@/layout/components/NoteBook/index'
 
 export default {
   name: 'Layout',
   components: {
+    NoteBook,
     Navbar,
     Sidebar,
     AppMain,
