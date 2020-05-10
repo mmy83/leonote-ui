@@ -19,7 +19,7 @@ const notebooks = [
 export default [
 
   {
-    url: '/notebook',
+    url: '/v1/notebook',
     type: 'get',
     response: config => {
       // mock error

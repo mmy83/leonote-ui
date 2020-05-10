@@ -6,6 +6,7 @@ const getters = {
   name: state => state.user.name,
   notebooks: state => state.notebook.notebooks,
   notes: state => state.note.notes,
-  currentNoteBook: state => state.notebook.currentNoteBook
+  currentNoteBook: state => state.notebook.currentNoteBook,
+  currentNote: state => state.note.currentNote
 }
 export default getters

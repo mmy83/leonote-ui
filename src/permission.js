@@ -35,6 +35,7 @@ router.beforeEach(async(to, from, next) => {
           await store.dispatch('user/getInfo')
           await store.dispatch('notebook/getNoteBooks')
           await store.dispatch('note/getNoteList', store.getters.currentNoteBook.id)
+          await store.dispatch('note/getNote', store.getters.notes[0].id)
           // console.log(store.getters.notes)
           next()
         } catch (error) {

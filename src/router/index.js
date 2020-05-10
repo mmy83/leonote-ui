@@ -43,17 +43,17 @@ export const constantRoutes = [
     hidden: true
   },
 
-  {
-    path: '/',
-    component: Layout,
-    redirect: '/dashboard',
-    children: [{
-      path: 'dashboard',
-      name: 'Dashboard',
-      component: () => import('@/views/dashboard/index'),
-      meta: { title: 'Dashboard', icon: 'dashboard' }
-    }]
-  },
+  // {
+  //   path: '/',
+  //   component: Layout,
+  //   redirect: '/dashboard',
+  //   children: [{
+  //     path: 'dashboard',
+  //     name: 'Dashboard',
+  //     component: () => import('@/views/dashboard/index'),
+  //     meta: { title: 'Dashboard', icon: 'dashboard' }
+  //   }]
+  // },
 
   {
     path: '/example',
@@ -76,7 +76,19 @@ export const constantRoutes = [
       }
     ]
   },
-
+  {
+    path: '/',
+    component: Layout,
+    redirect: '/note',
+    children: [
+      {
+        path: 'note',
+        name: 'note',
+        component: () => import('@/views/note/index'),
+        meta: { title: 'note', icon: 'form' }
+      }
+    ]
+  },
   {
     path: '/form',
     component: Layout,

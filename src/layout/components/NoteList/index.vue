@@ -2,7 +2,7 @@
   <div>
     <note-book-title>{{ currentNoteBook.notebook_name }}</note-book-title>
     <el-scrollbar wrap-class="scrollbar-wrapper">
-      <item v-for="note in notes" :item="note" />
+      <item v-for="note in notes" :item="note" @noteClick="setCurrentNote(note.id)"/>
     </el-scrollbar>
   </div>
 
@@ -23,6 +23,11 @@ export default {
       'notes',
       'currentNoteBook'
     ])
+  },
+  methods: {
+    setCurrentNote(id) {
+      this.$store.dispatch('note/getNote', id)
+    }
   }
 }
 

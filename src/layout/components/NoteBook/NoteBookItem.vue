@@ -27,6 +27,7 @@ import Item from './Item'
 import { isExternal } from '@/utils/validate'
 import path from 'path'
 import store from '@/store'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'NoteBookItem',
