@@ -14,7 +14,8 @@
     overflow: hidden;
     color: #ffffff;
     .menu-bar {
-      padding: 0 20px 0 10px;
+      padding: 0 0 0 0px;
+
       #notebook{
         padding: 0;
         margin: 0;
@@ -27,6 +28,16 @@
           .item-sub {
             display: inline-block;
             width: 100%;
+            padding-right: 20px;
+            padding-left: 10px;
+
+            &:hover {
+              >.left-setting {
+                pointer-events: none;
+                cursor: default;
+                opacity: 1.0;
+              }
+            }
           }
           >div {
             >li {
@@ -58,7 +69,7 @@
           text-align: center;
           line-height: 30px;
           position: absolute;
-          left: -10px;
+          left: 0px;
         }
 
         .fa-angle-down {
@@ -67,7 +78,7 @@
           text-align: center;
           line-height: 30px;
           position: absolute;
-          left: -10px;
+          left: 0px;
         }
 
         .count {
@@ -77,14 +88,24 @@
           line-height: 30px;
           font-size: 14px;
           position: absolute;
-          right: -15px;
+          right: 5px;
+          //display: none;
+          opacity: 0.0;
         }
-        //&:hover >div> .left-setting {
-        //  display: block;
+        //&:hover {
         //  pointer-events: none;
-        //  cursor: default;
-        //  opacity: 0.6;
+        //  >div {
+        //    pointer-events: none;
+        //    >.left-setting {
+        //      //display: block;
+        //      pointer-events: none;
+        //      cursor: default;
+        //      opacity: 0.5;
+        //    }
+        //  }
         //}
+
+
       }
     }
 
