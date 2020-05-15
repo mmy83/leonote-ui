@@ -1,32 +1,56 @@
 <template>
-<!--  <app-link :to="to">-->
-  <span @click="clickNoteBook">
-    {{ title }}
-  </span>
-<!--  </app-link>-->
+  <div class="item-sub">
+    <span class="title" @click="clickNoteBook">{{ title }}</span>
+    <i class="el-icon-setting left-setting" />
+    <span class="count">{{ count }}</span>
+  </div>
 </template>
 
 <script>
-// import AppLink from './Link'
-
 export default {
-  name: 'Item',
+  name: 'MenuItem',
   // functional: true,
-  // components: { AppLink },
   props: {
     title: {
       type: String,
       default: ''
     },
-    to: {
-      type: String,
-      default: ''
+    count: {
+      type: Number,
+      default: 0
     }
   },
+  // render(h, context) {
+  //   console.log(this)
+  //   const { count, title } = this.props
+  //   const vnodes = []
+  //   if (title) {
+  //     vnodes.push(h('span', {
+  //       domProps: {
+  //         innerHTML: title
+  //       },
+  //       on: {
+  //         click: function(event) {
+  //           this.$emit('clickNoteBook')
+  //         }
+  //       }}
+  //     ))
+  //   }
+  //   vnodes.push(h('span', {
+  //     domProps: {
+  //       innerHTML: count
+  //     }
+  //   }))
+  //   vnodes.push(h('i', {
+  //     class: {
+  //       'el-icon-setting': true,
+  //       'left-setting': true
+  //     }
+  //   }))
+  //
+  //   return vnodes
+  // },
   methods: {
-    // setCurrentNoteBook: (notebook_id) =>{
-    //   this.$emit('setCurrentNoteBook')
-    // }
     clickNoteBook() {
       this.$emit('clickNoteBook')
     }

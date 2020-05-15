@@ -1,29 +1,27 @@
 <template>
   <div>
     <template v-if="!hasChild(item)">
-      <el-menu-item :index="resolvePath(item.id)" :class="{'submenu-title-noDropdown':!isNest}">
-        <item :title="item.notebook_name" :to="resolvePath(item.id)" @clickNoteBook="setCurrentNoteBook(item)"/>
-      </el-menu-item>
+      <li>
+        <item :title="item.notebook_name" @clickNoteBook="setCurrentNoteBook(item)"/>
+      </li>
     </template>
 
-    <el-submenu v-else ref="subMenu" :index="resolvePath(item.id)" popper-append-to-body>
+    <sub-menu v-else ref="subMenu" :index="resolvePath(item.id)" popper-append-to-body>
       <template slot="title">
-        <item :title="item.notebook_name" :to="resolvePath(item.id)"/>
+        <item :title="item.notebook_name" @clickNoteBook="setCurrentNoteBook(item)"/>
       </template>
       <note-book-item
         v-for="child in item.childrens"
         :key="child.id"
-        :is-nest="true"
         :item="child"
-        :base-path="resolvePath(child.id)"
-        class="nest-menu"
       />
-    </el-submenu>
+    </sub-menu>
   </div>
 </template>
 
 <script>
 import Item from './Item'
+import SubMenu from './SubMenu'
 import { isExternal } from '@/utils/validate'
 import path from 'path'
 import store from '@/store'
@@ -31,15 +29,16 @@ import { mapGetters } from 'vuex'
 
 export default {
   name: 'NoteBookItem',
-  components: { Item },
+  components: { Item, SubMenu },
   props: {
     item: {
       type: Object,
       required: true
-    },
-    isNest: {
-      type: Boolean,
-      default: false
+    }
+  },
+  data: () => {
+    return {
+      showChild: false
     }
   },
   methods: {
@@ -54,6 +53,7 @@ export default {
       return path.resolve('#/note/' + routePath)
     },
     setCurrentNoteBook(notebook) {
+      console.log('setCurrentNoteBook')
       this.$store.dispatch('notebook/setCurrentNoteBook', notebook)
       this.$store.dispatch('note/getNoteList', notebook.id)
     }

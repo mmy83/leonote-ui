@@ -7,7 +7,6 @@
 
     <div class="main-container">
       <note-book class="notebook-container" />
-<!--      <sidebar class="sidebar-container" />-->
       <note-list class="note-list" />
       <app-main />
     </div>

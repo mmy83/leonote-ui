@@ -1,6 +1,7 @@
 #app {
 
   .notebook-container {
+
     transition: width 0.28s;
     width: $sideBarWidth !important;
     background-color: $menuBg;
@@ -12,6 +13,64 @@
     left: 0;
     z-index: 1001;
     overflow: hidden;
+    color: #ffffff;
+
+    #notebook{
+      > ul{
+        >li {
+          border-bottom: 1px solid transparent;
+          border-color: rgba(255, 255, 255, 0.05);
+        }
+      }
+    }
+
+    ul {
+      //background-color: #41586e;
+      padding: 0 0 0 10px;
+      margin: 0;
+      //background-color: #37485e;
+      li {
+        width: 100%;
+        line-height: 30px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        position: relative;
+
+        .fa-angle-right {
+          width: 20px;
+          height: 30px;
+          text-align: center;
+          line-height: 30px;
+          position: absolute;
+          left: -20px;
+        }
+
+        .fa-angle-down {
+          width: 20px;
+          height: 30px;
+          text-align: center;
+          line-height: 30px;
+          position: absolute;
+          left: -20px;
+        }
+
+        .left-setting {
+          float: right;
+          width: 20px;
+          height: 30px;
+          line-height: 30px;
+          //display: none;
+
+        }
+        &:hover >div> .left-setting {
+          display: block;
+          pointer-events: none;
+          cursor: default;
+          opacity: 0.6;
+        }
+      }
+    }
 
     .fa-left {
       display: inline-block;
