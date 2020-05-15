@@ -1,21 +1,21 @@
 <template>
-  <ul>
-    <div>
-      <li>
-        <i class="fa fa-book" />
-        <span>笔记本</span>
-        <i class="fa fa-plus"></i>
-        <ul>
+  <ul class="menu-bar">
+    <li id="notebook">
+      <i class="fa fa-book" />
+      <span>笔记本</span>
+      <i class="fa fa-plus"></i>
+      <transition>
+        <ul class="ztree">
           <div>
-            <li><input /></li>
+            <li class="search"><input /></li>
           </div>
           <div>
             <li>最新</li>
           </div>
           <slot></slot>
         </ul>
-      </li>
-    </div>
+      </transition>
+    </li>
   </ul>
 </template>
 

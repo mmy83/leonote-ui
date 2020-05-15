@@ -7,32 +7,47 @@
     background-color: $menuBg;
     height: calc(100% - 50px);
     position: fixed;
-    //font-size: 0px;
     top: 50px;
     bottom: 0;
     left: 0;
     z-index: 1001;
     overflow: hidden;
     color: #ffffff;
-
-    #notebook{
-      > ul{
-        >li {
-          border-bottom: 1px solid transparent;
-          border-color: rgba(255, 255, 255, 0.05);
+    .menu-bar {
+      padding: 0 20px 0 10px;
+      #notebook{
+        padding: 0;
+        margin: 0;
+        .ztree {
+          .search{
+            padding: 0;
+            margin: 0;
+            line-height: 30px;
+          }
+          .item-sub {
+            display: inline-block;
+            width: 100%;
+          }
+          >div {
+            >li {
+              border-bottom: 1px solid transparent;
+              border-color: rgba(255, 255, 255, 0.05);
+            }
+          }
         }
       }
     }
 
+
     ul {
       //background-color: #41586e;
-      padding: 0 0 0 10px;
+      padding: 0;
       margin: 0;
       //background-color: #37485e;
       li {
         width: 100%;
         line-height: 30px;
-        padding: 0;
+        padding: 0 0 0 10px;
         margin: 0;
         list-style: none;
         position: relative;
@@ -43,7 +58,7 @@
           text-align: center;
           line-height: 30px;
           position: absolute;
-          left: -20px;
+          left: -10px;
         }
 
         .fa-angle-down {
@@ -52,23 +67,24 @@
           text-align: center;
           line-height: 30px;
           position: absolute;
-          left: -20px;
+          left: -10px;
         }
 
-        .left-setting {
+        .count {
           float: right;
-          width: 20px;
-          height: 30px;
+        }
+        .left-setting {
           line-height: 30px;
-          //display: none;
-
+          font-size: 14px;
+          position: absolute;
+          right: -15px;
         }
-        &:hover >div> .left-setting {
-          display: block;
-          pointer-events: none;
-          cursor: default;
-          opacity: 0.6;
-        }
+        //&:hover >div> .left-setting {
+        //  display: block;
+        //  pointer-events: none;
+        //  cursor: default;
+        //  opacity: 0.6;
+        //}
       }
     }
 
