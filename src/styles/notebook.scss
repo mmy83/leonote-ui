@@ -20,6 +20,7 @@
         padding: 0;
         margin: 0;
         .ztree {
+          color: #ADBECE;
           .search{
             padding: 0;
             margin: 0;
@@ -32,8 +33,8 @@
             padding-left: 10px;
 
             &:hover {
-              >.left-setting {
-                pointer-events: none;
+              .left-setting {
+                //pointer-events: none;
                 cursor: default;
                 opacity: 1.0;
               }
@@ -249,6 +250,7 @@
     }
   }
 
+
   .hideSidebar {
     .notebook-container {
       width: $sideBarMiniWidth !important;
@@ -330,6 +332,23 @@
     }
   }
 }
+
+.el-popover {
+  padding: 0;
+  background: #ccc;
+  border: 1px solid #ffffff;
+  ul {
+    padding: 0;
+    margin: 0;
+
+    li {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+  }
+}
+
 
 // when menu collapsed
 .el-menu--vertical {
