@@ -22,26 +22,26 @@
         margin: 0;
         .notebook-header {
           padding: 0 10px;
-          line-height: 34px;
+          line-height: 36px;
           border: 1px solid rgba(255, 255, 255, 0.1);
           background-color: #41586e;
           .fa-book {
             float: left;
-            line-height: 34px;
-            height: 34px;
+            line-height: 36px;
+            height: 36px;
           }
           span {
             display: inline-block;
             text-align: center;
-            line-height: 34px;
+            line-height: 36px;
             margin: 0 auto;
             width: 150px;
             font-size: 16px;
           }
           .fa-plus {
             float: right;
-            line-height: 34px;
-            height: 34px;
+            line-height: 36px;
+            height: 36px;
           }
         }
         .ztree {
