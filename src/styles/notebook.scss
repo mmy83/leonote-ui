@@ -2,6 +2,7 @@
 
   .notebook-container {
 
+    font-size: 14px;
     transition: width 0.28s;
     width: $sideBarWidth !important;
     background-color: $menuBg;
@@ -21,23 +22,26 @@
         margin: 0;
         .notebook-header {
           padding: 0 10px;
-          line-height: 30px;
+          line-height: 34px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          background-color: #41586e;
           .fa-book {
             float: left;
-            line-height: 30px;
-            height: 30px;
+            line-height: 34px;
+            height: 34px;
           }
           span {
             display: inline-block;
             text-align: center;
-            line-height: 30px;
+            line-height: 34px;
             margin: 0 auto;
             width: 150px;
+            font-size: 16px;
           }
           .fa-plus {
             float: right;
-            line-height: 30px;
-            height: 30px;
+            line-height: 34px;
+            height: 34px;
           }
         }
         .ztree {
@@ -51,6 +55,8 @@
               background: #37485e;
               color: #ccc;
               border: 1px solid rgba(255, 255, 255, 0.1);
+              height: 24px;
+              width: 100%;
             }
           }
           .item-sub {

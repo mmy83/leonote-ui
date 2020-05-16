@@ -1,6 +1,6 @@
 
 const notebooks = [
-  { 'id': 1, 'notebook_name': 'my book 1', 'childrens': [
+  { 'id': 1, 'notebook_name': '私人笔记', 'childrens': [
     { 'id': 4, 'notebook_name': 'my book 4', 'childrens': [
       { 'id': 5, 'notebook_name': 'my book 5', 'childrens': [] },
       { 'id': 6, 'notebook_name': 'my book 6', 'childrens': [] }
