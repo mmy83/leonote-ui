@@ -1,13 +1,18 @@
 <template>
   <ul class="menu-bar">
     <li id="notebook">
-      <i class="fa fa-book" />
-      <span>笔记本</span>
-      <i class="fa fa-plus"></i>
+      <div class="notebook-header">
+        <i class="fa fa-book" />
+        <span>笔记本</span>
+        <i class="fa fa-plus"></i>
+      </div>
+<!--      <i class="fa fa-book" />-->
+<!--      <span>笔记本</span>-->
+<!--      <i class="fa fa-plus"></i>-->
       <transition>
         <ul class="ztree">
           <div>
-            <li class="search"><input /></li>
+            <li class="search"><input placeholder="搜索笔记本"/></li>
           </div>
           <div>
             <li>最新</li>

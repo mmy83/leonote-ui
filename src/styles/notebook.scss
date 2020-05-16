@@ -19,12 +19,39 @@
       #notebook{
         padding: 0;
         margin: 0;
+        .notebook-header {
+          padding: 0 10px;
+          line-height: 30px;
+          .fa-book {
+            float: left;
+            line-height: 30px;
+            height: 30px;
+          }
+          span {
+            display: inline-block;
+            text-align: center;
+            line-height: 30px;
+            margin: 0 auto;
+            width: 150px;
+          }
+          .fa-plus {
+            float: right;
+            line-height: 30px;
+            height: 30px;
+          }
+        }
         .ztree {
           color: #ADBECE;
           .search{
-            padding: 0;
+            padding: 0 10px;
             margin: 0;
             line-height: 30px;
+            text-align: center;
+            input {
+              background: #37485e;
+              color: #ccc;
+              border: 1px solid rgba(255, 255, 255, 0.1);
+            }
           }
           .item-sub {
             display: inline-block;
