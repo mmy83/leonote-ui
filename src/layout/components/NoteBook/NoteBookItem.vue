@@ -2,13 +2,13 @@
   <div>
     <template v-if="!hasChild(item)">
       <li>
-        <item :title="item.notebook_name" @clickNoteBook="setCurrentNoteBook(item)"/>
+        <item :title="item.notebook_name" @delNote="delNote(item)" @renameNotebook="renameNotebook(item)" @addChildNotebook="addChildNotebook(item)" @clickNoteBook="setCurrentNoteBook(item)"/>
       </li>
     </template>
 
-    <sub-menu v-else ref="subMenu" :index="resolvePath(item.id)" popper-append-to-body>
+    <sub-menu v-else ref="subMenu" :index="resolvePath(item)" popper-append-to-body>
       <template slot="title">
-        <item :title="item.notebook_name" @clickNoteBook="setCurrentNoteBook(item)"/>
+        <item :title="item.notebook_name" @delNote="delNote(item)" @renameNotebook="renameNotebook(item)" @addChildNotebook="addChildNotebook(item)" @clickNoteBook="setCurrentNoteBook(item)"/>
       </template>
       <note-book-item
         v-for="child in item.childrens"
@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import Vue from 'vue';
 import Item from './Item'
 import SubMenu from './SubMenu'
 import { isExternal } from '@/utils/validate'
@@ -56,6 +57,16 @@ export default {
       console.log('setCurrentNoteBook')
       this.$store.dispatch('notebook/setCurrentNoteBook', notebook)
       this.$store.dispatch('note/getNoteList', notebook.id)
+    },
+    addChildNotebook(notebook) {
+
+    },
+    renameNotebook(notebook) {
+      console.log(this.$el.getElementsByClassName('title')[0].remove())
+    },
+    delNote(notebook) {
+      console.log(notebook)
+      // console.log(this.$el.remove())
     }
   }
 }
