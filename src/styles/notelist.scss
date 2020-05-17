@@ -25,7 +25,8 @@
           float: left;
           height: 100%;
           line-height: 55px;
-          width: calc(100% - 56px);
+          //width: calc(100% - 56px);
+          width: 50%;
           color: #000000;
           padding-left: 16px;
         }
@@ -33,7 +34,17 @@
           float: right;
           line-height: 56px;
           height: 56px;
-          padding: 0 20px;
+          padding: 0;
+          width: 50%;
+          .fa-plus {
+            line-height: 55px;
+            float: left;
+          }
+          .fa-th-list {
+            line-height: 55px;
+            float: right;
+            padding-right: 20px;
+          }
         }
       }
       .note-list-item {

@@ -4,7 +4,9 @@
       <slot></slot>
     </div>
 <!--    <svg-icon icon-class="list" />-->
+
     <div class="dropdown">
+      <i class="fa  fa-plus" />
       <i class="fa fa-th-list" />
     </div>
 
