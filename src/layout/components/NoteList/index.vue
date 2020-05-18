@@ -1,6 +1,6 @@
 <template>
   <div>
-    <note-book-title>{{ currentNoteBook.notebook_name }}</note-book-title>
+    <note-list-header @addNote="addNote()">{{ currentNoteBook.notebook_name }}</note-list-header>
     <el-scrollbar wrap-class="scrollbar-wrapper">
       <item v-for="note in notes" :item="note" @noteClick="setCurrentNote(note.id)"/>
     </el-scrollbar>
@@ -10,13 +10,13 @@
 
 <script>
 
-import NoteBookTitle from './NoteBookTitle'
+import NoteListHeader from './NoteListHeader'
 import Item from './Item'
 import { mapGetters } from 'vuex'
 
 export default {
   name: 'NoteList',
-  components: { NoteBookTitle, Item },
+  components: { NoteListHeader, Item },
   computed: {
     ...mapGetters([
       'sidebar',
@@ -27,6 +27,9 @@ export default {
   methods: {
     setCurrentNote(id) {
       this.$store.dispatch('note/getNote', id)
+    },
+    addNote() {
+      console.log(this.currentNoteBook)
     }
   }
 }

@@ -74,6 +74,29 @@ export default [
         }
       }
     }
+  },
+  {
+    url: '/v1/note/create',
+    type: 'post',
+    response: config => {
+      const { notebook_id } = config.params
+      // console.log(config.params)
+
+      return {
+        code: 20000,
+        data: {
+          note: {
+            'id': 1,
+            'notebook': {
+              'id': notebook_id,
+              'notebook_name': 'my book 1'
+            },
+            'title': '',
+            'created': '2020-05-09 12:12:12'
+          }
+        }
+      }
+    }
   }
 
 ]

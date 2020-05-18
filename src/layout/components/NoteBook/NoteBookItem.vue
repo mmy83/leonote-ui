@@ -31,6 +31,13 @@ import { mapGetters } from 'vuex'
 export default {
   name: 'NoteBookItem',
   components: { Item, SubMenu },
+  computed: {
+    ...mapGetters([
+      'notes',
+      'currentNote',
+      'currentNoteBook'
+    ])
+  },
   props: {
     item: {
       type: Object,
@@ -57,6 +64,13 @@ export default {
       console.log('setCurrentNoteBook')
       this.$store.dispatch('notebook/setCurrentNoteBook', notebook)
       this.$store.dispatch('note/getNoteList', notebook.id)
+      console.log(this.currentNoteBook)
+      console.log(this.notes)
+      if (this.notes.length > 0) {
+        this.$store.dispatch('note/getNote', this.notes[0].id)
+      } else {
+        this.currentNote = ''
+      }
     },
     addChildNotebook(notebook) {
 
