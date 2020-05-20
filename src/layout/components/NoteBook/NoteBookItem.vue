@@ -60,23 +60,22 @@ export default {
     resolvePath(routePath) {
       return path.resolve('#/note/' + routePath)
     },
-    setCurrentNoteBook(notebook) {
-      console.log('setCurrentNoteBook')
-      this.$store.dispatch('notebook/setCurrentNoteBook', notebook)
-      this.$store.dispatch('note/getNoteList', notebook.id)
-      console.log(this.currentNoteBook)
-      console.log(this.notes)
+    async setCurrentNoteBook(notebook) {
+
+      await store.dispatch('notebook/setCurrentNoteBook', notebook)
+      await store.dispatch('note/getNoteList', notebook.id)
+
       if (this.notes.length > 0) {
-        this.$store.dispatch('note/getNote', this.notes[0].id)
+        await store.dispatch('note/getNote', this.notes[0].id)
       } else {
-        this.currentNote = ''
+        await store.dispatch('note/setCurrentNote', {})
       }
     },
     addChildNotebook(notebook) {
 
     },
     renameNotebook(notebook) {
-      console.log(this.$el.getElementsByClassName('title')[0].remove())
+      // console.log(this.$el.getElementsByClassName('title')[0].remove())
     },
     delNote(notebook) {
       console.log(notebook)

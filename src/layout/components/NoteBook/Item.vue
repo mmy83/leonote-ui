@@ -26,6 +26,7 @@
 </template>
 
 <script>
+let time = null
 export default {
   name: 'MenuItem',
   // functional: true,
@@ -48,7 +49,10 @@ export default {
   },
   methods: {
     clickNoteBook() {
-      this.$emit('clickNoteBook')
+      clearTimeout(time)
+      time = setTimeout(() => {
+        this.$emit('clickNoteBook')
+      }, 300)
     },
     changeAddInput() {
       this.show = false
@@ -59,6 +63,7 @@ export default {
       })
     },
     changeRenameInput() {
+      clearTimeout(time)
       this.show = false
       this.rename = true
       // 然后调用focus方法
@@ -67,12 +72,12 @@ export default {
       })
     },
     addChildNotebook() {
-      // this.$emit('addChildNotebook')
       this.add = false
+      this.$emit('addChildNotebook')
     },
     renameNotebook() {
-      // this.$emit('renameNotebook')
       this.rename = false
+      this.$emit('renameNotebook')
     },
     delNote() {
       this.show = false

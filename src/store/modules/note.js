@@ -25,15 +25,12 @@ const actions = {
     return new Promise((resolve, reject) => {
       getNoteList(state.token, notebookid).then(response => {
         const { data } = response
-
         if (!data) {
           reject('Verification failed, please Login again.')
         }
-
         const { notes } = data
-
+        // console.log(notes)
         commit('SET_NOTELIST', notes)
-
         resolve(data)
       }).catch(error => {
         reject(error)
@@ -49,13 +46,18 @@ const actions = {
           reject('Verification failed, please Login again.')
         }
         const { note } = data
-        console.log(note)
+        // console.log(note)
         commit('SET_CURRENTNOTE', note)
         resolve(data)
       })
     })
+  },
+  setCurrentNote({ commit, state }, note) {
+    return new Promise(() => {
+      // console.log(note)
+      commit('SET_CURRENTNOTE', note)
+    })
   }
-
 }
 
 export default {
