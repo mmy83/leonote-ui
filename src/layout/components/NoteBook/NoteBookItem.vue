@@ -2,13 +2,13 @@
   <div>
     <template v-if="!hasChild(item)">
       <li>
-        <item :title="item.notebook_name" @delNote="delNote(item)" @renameNotebook="renameNotebook(item)" @addChildNotebook="addChildNotebook(item)" @clickNoteBook="setCurrentNoteBook(item)"/>
+        <item :isadd="item.isAdd" :title="item.notebook_name" @changeAddInput="changeAddInput(item)" @delNote="delNote(item)" @renameNotebook="renameNotebook(item)" @addChildNotebook="addChildNotebook(item)" @clickNoteBook="setCurrentNoteBook(item)"/>
       </li>
     </template>
 
     <sub-menu v-else ref="subMenu" :index="resolvePath(item)" popper-append-to-body>
       <template slot="title">
-        <item :title="item.notebook_name" @delNote="delNote(item)" @renameNotebook="renameNotebook(item)" @addChildNotebook="addChildNotebook(item)" @clickNoteBook="setCurrentNoteBook(item)"/>
+        <item :isadd="item.isAdd" :title="item.notebook_name" @changeAddInput="changeAddInput(item)" @delNote="delNote(item)" @renameNotebook="renameNotebook(item)" @addChildNotebook="addChildNotebook(item)" @clickNoteBook="setCurrentNoteBook(item)"/>
       </template>
       <note-book-item
         v-for="child in item.childrens"
@@ -66,13 +66,18 @@ export default {
       await store.dispatch('note/getNoteList', notebook.id)
 
       if (this.notes.length > 0) {
-        await store.dispatch('note/getNote', this.notes[0].id)
+        console.log('--get note--')
+        // await store.dispatch('note/getNote', this.notes[0].id)
+        this.$router.push({ name: 'note', params: { id: this.notes[0].id }})
       } else {
-        await store.dispatch('note/setCurrentNote', {})
+        // await store.dispatch('note/setCurrentNote', {})
       }
     },
+    changeAddInput(notebook) {
+      notebook.childrens.unshift({ id: 0, notebook_name: '添加笔记', isAdd: true, childrens: [] })
+    },
     addChildNotebook(notebook) {
-
+      // notebook.childrens.unshift({ id: 0, notebook_name: '', isAdd: true, childrens: [] })
     },
     renameNotebook(notebook) {
       // console.log(this.$el.getElementsByClassName('title')[0].remove())

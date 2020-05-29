@@ -16,6 +16,10 @@ export default {
       'sidebar',
       'currentNote'
     ])
+  },
+  mounted() {
+    const id = this.$route.params.id
+    this.$store.dispatch('note/getNote', id)
   }
 
 }

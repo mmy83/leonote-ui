@@ -79,10 +79,9 @@ export const constantRoutes = [
   {
     path: '/',
     component: Layout,
-    redirect: '/note',
     children: [
       {
-        path: 'note',
+        path: 'note/:id',
         name: 'note',
         component: () => import('@/views/note/index'),
         meta: { title: 'note', icon: 'form' }

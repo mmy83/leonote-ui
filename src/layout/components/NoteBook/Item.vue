@@ -1,8 +1,8 @@
 <template>
   <div class="item-sub">
     <span v-if="!add && !rename" class="title" @dblclick="changeRenameInput" @click="clickNoteBook">{{ title }}</span>
-    <span v-if="add"><input @blur="addChildNotebook" ref="addNotebookInput" class="add-notebook-input" :value="title" style="width: 120px"></span>
-    <span v-if="rename"><input @blur="renameNotebook" ref="renameNotebookInput" class="rename-notebook-input" :value="title" style="width: 120px"></span>
+    <span v-if="add"><input ref="addNotebookInput" :value="title" style="width: 120px" @blur="addChildNotebook"></span>
+    <span v-if="rename"><input ref="renameNotebookInput" :value="title" style="width: 120px" @blur="renameNotebook"></span>
     <el-popover v-model="show" placement="right" width="115" trigger="click">
       <table>
         <tr>
@@ -38,13 +38,35 @@ export default {
     count: {
       type: Number,
       default: 0
+    },
+    isadd: {
+      type: Boolean,
+      default: false
     }
   },
   data() {
     return {
       rename: false,
-      add: false,
-      show: false
+      show: false,
+      add: this.isadd
+    }
+  },
+  watch: {
+    add(value, oldValue) {
+      if (value) {
+        this.$nextTick(() => {
+          this.$refs.addNotebookInput.focus()
+        })
+      }
+      console.log('add')
+    },
+    rename(value, oldValue) {
+      if (value) {
+        this.$nextTick(() => {
+          this.$refs.renameNotebookInput.focus()
+        })
+      }
+      console.log('rename')
     }
   },
   methods: {
@@ -56,20 +78,13 @@ export default {
     },
     changeAddInput() {
       this.show = false
-      this.add = true
-      // 然后调用focus方法
-      this.$nextTick(() => {
-        this.$refs.addNotebookInput.focus()
-      })
+      // this.add = true
+      this.$emit('changeAddInput')
     },
     changeRenameInput() {
       clearTimeout(time)
       this.show = false
       this.rename = true
-      // 然后调用focus方法
-      this.$nextTick(() => {
-        this.$refs.renameNotebookInput.focus()
-      })
     },
     addChildNotebook() {
       this.add = false
