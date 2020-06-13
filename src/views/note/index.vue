@@ -16,7 +16,7 @@
         <input v-model="currentNote.title" />
       </div>
       <div class="note-content">
-        <tinymce v-model="currentNote.content" :height="300" />
+        <tinymce :value="currentNote.content" :height="300" />
       </div>
 
     </template>
@@ -36,7 +36,7 @@
         <input v-model="currentNote.title" />
       </div>
       <div class="note-content">
-        <markdown-editor ref="markdownEditor" v-model="currentNote.content" height="300px" />
+        <markdown-editor ref="markdownEditor" :value="currentNote.content" height="300px" />
       </div>
     </template>
     <template v-if="!currentNote.type">
