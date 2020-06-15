@@ -1,56 +1,39 @@
 <template>
   <div class="note-page">
-    <template v-if="currentNote.type=='edit' && currentNote.ismd == 0">
-      <div class="note-tag">
-        <ul class="note-tags">
-          <li v-for="item in currentNote.tags" :key="item.id">{{item.tag_name}} <i class="fa fa-remove"></i></li>
-        </ul>
-        <div class="note-tools">
-          <i class="fa fa-edit"></i>
-          <i class="fa fa-save"></i>
-          <i class="fa fa-paperclip"></i>
-          <i class="fa fa-history"></i>
-        </div>
+
+    <div class="note-tag">
+      <ul class="note-tags">
+        <li v-for="item in currentNote.tags" :key="item.id">{{item.tag_name}} <i class="fa fa-remove"></i></li>
+      </ul>
+      <i class="fa fa-bookmark-o" />
+      &nbsp;
+      <span v-if="!currentNote.add_tag" @click="changeAdd(currentNote)">点击添加</span>
+      <span v-if="currentNote.add_tag" class="add-tag"><input @blur="changeSave(currentNote)"/></span>
+      <div class="note-tools">
+        <i class="fa fa-edit"></i>
+        <i class="fa fa-save"></i>
+        <i class="fa fa-paperclip"></i>
+        <i class="fa fa-history"></i>
       </div>
+    </div>
+    <template v-if="currentNote.type=='edit' && currentNote.ismd == 0">
       <div class="note-title">
         <input v-model="currentNote.title" />
       </div>
       <div class="note-content">
         <tinymce :value="currentNote.content" :height="300" />
       </div>
-
     </template>
     <template v-if="currentNote.type=='edit' && currentNote.ismd==1">
-      <div class="note-tag">
-        <ul class="note-tags">
-          <li v-for="item in currentNote.tags" :key="item.id"> {{item.tag_name}} <i class="fa fa-remove"></i></li>
-        </ul>
-        <div class="note-tools">
-          <i class="fa fa-edit"></i>
-          <i class="fa fa-save"></i>
-          <i class="fa fa-paperclip"></i>
-          <i class="fa fa-history"></i>
-        </div>
-      </div>
       <div class="note-title">
         <input v-model="currentNote.title" />
       </div>
       <div class="note-content">
-        <markdown-editor ref="markdownEditor" :value="currentNote.content" height="300px" />
+        <markdown-editor ref="markdownEditor" :value="currentNote.content" height="400px" />
       </div>
     </template>
+
     <template v-if="!currentNote.type">
-      <div class="note-tag">
-        <ul class="note-tags">
-          <li v-for="item in currentNote.tags" :key="item.id">{{item.tag_name}} <i class="fa fa-remove"></i></li>
-        </ul>
-        <div class="note-tools">
-          <i class="fa fa-edit"></i>
-          <i class="fa fa-save"></i>
-          <i class="fa fa-paperclip"></i>
-          <i class="fa fa-history"></i>
-        </div>
-      </div>
       <div class="note-title">
         {{currentNote.title}}
       </div>
@@ -59,7 +42,6 @@
         {{currentNote.content}}
       </div>
     </template>
-
   </div>
 
 </template>
@@ -80,6 +62,18 @@ export default {
   mounted() {
     const id = this.$route.params.id
     this.$store.dispatch('note/getNote', id)
+  },
+  methods: {
+    changeAdd(currentNote) {
+      console.log('changeAdd')
+      currentNote.add_tag = true
+      console.log(currentNote.add_tag)
+    },
+    changeSave(currentNote) {
+      console.log('changeSave')
+      currentNote.add_tag = false
+      console.log(currentNote.add_tag)
+    }
   }
 
 }

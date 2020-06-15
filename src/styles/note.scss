@@ -11,6 +11,13 @@
       border-bottom: 1px solid #bfcbd9;
       line-height: 58px;
 
+      .add-tag {
+        input {
+          border: 0px;
+          width: 100px;
+        }
+      }
+
       .note-tags {
         padding: 0;
         margin: 0;
