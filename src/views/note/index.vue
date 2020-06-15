@@ -7,8 +7,8 @@
       </ul>
       <i class="fa fa-bookmark-o" />
       &nbsp;
-      <span v-if="!currentNote.add_tag" @click="changeAdd(currentNote)">点击添加</span>
-      <span v-if="currentNote.add_tag" class="add-tag"><input @blur="changeSave(currentNote)"/></span>
+      <span v-if="!add_tag" @click="changeAdd">点击添加</span>
+      <span v-if="add_tag" class="add-tag"><input ref="addtag" @blur="changeSave"/></span>
       <div class="note-tools">
         <i class="fa fa-edit"></i>
         <i class="fa fa-save"></i>
@@ -53,6 +53,11 @@ import MarkdownEditor from '@/components/MarkdownEditor'
 
 export default {
   components: { Tinymce, MarkdownEditor },
+  data() {
+    return {
+      add_tag: false
+    }
+  },
   computed: {
     ...mapGetters([
       'sidebar',
@@ -66,13 +71,16 @@ export default {
   methods: {
     changeAdd(currentNote) {
       console.log('changeAdd')
-      currentNote.add_tag = true
-      console.log(currentNote.add_tag)
+      this.add_tag = true
+      console.log(this.add_tag)
+      this.$nextTick(() => {
+        this.$refs.addtag.focus()
+      })
     },
     changeSave(currentNote) {
       console.log('changeSave')
-      currentNote.add_tag = false
-      console.log(currentNote.add_tag)
+      this.add_tag = false
+      console.log(this.add_tag)
     }
   }
 
