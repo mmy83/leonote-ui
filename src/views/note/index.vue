@@ -7,16 +7,16 @@
       </ul>
       <i class="fa fa-bookmark-o" />
       &nbsp;
-      <span v-if="!add_tag" @click="changeAdd">点击添加</span>
-      <span v-if="add_tag" class="add-tag"><input ref="addtag" @blur="changeSave"/></span>
+      <span v-if="!addtag" @click="changeAdd">点击添加</span>
+      <span v-if="addtag" class="add-tag"><input ref="addtag" @blur="changeSave"/></span>
       <div class="note-tools">
-        <i class="fa fa-edit"></i>
+        <i v-if="isedit" @click="noteShow" class="fa fa-eye"></i><i v-if="!isedit" @click="noteEdit" class="fa fa-edit"></i>
         <i class="fa fa-save"></i>
         <i class="fa fa-paperclip"></i>
         <i class="fa fa-history"></i>
       </div>
     </div>
-    <template v-if="currentNote.type=='edit' && currentNote.ismd == 0">
+    <template v-if="isedit && currentNote.ismd == 0">
       <div class="note-title">
         <input v-model="currentNote.title" />
       </div>
@@ -24,7 +24,7 @@
         <tinymce :value="currentNote.content" :height="300" />
       </div>
     </template>
-    <template v-if="currentNote.type=='edit' && currentNote.ismd==1">
+    <template v-if="isedit && currentNote.ismd==1">
       <div class="note-title">
         <input v-model="currentNote.title" />
       </div>
@@ -33,7 +33,7 @@
       </div>
     </template>
 
-    <template v-if="!currentNote.type">
+    <template v-if="!isedit">
       <div class="note-title">
         {{currentNote.title}}
       </div>
@@ -55,7 +55,8 @@ export default {
   components: { Tinymce, MarkdownEditor },
   data() {
     return {
-      add_tag: false
+      addtag: false,
+      isedit: false
     }
   },
   computed: {
@@ -69,18 +70,28 @@ export default {
     this.$store.dispatch('note/getNote', id)
   },
   methods: {
-    changeAdd(currentNote) {
+    changeAdd() {
       console.log('changeAdd')
-      this.add_tag = true
-      console.log(this.add_tag)
+      this.addtag = true
+      console.log(this.addtag)
       this.$nextTick(() => {
         this.$refs.addtag.focus()
       })
     },
-    changeSave(currentNote) {
+    changeSave() {
       console.log('changeSave')
-      this.add_tag = false
-      console.log(this.add_tag)
+      this.addtag = false
+      console.log(this.addtag)
+    },
+    noteEdit() {
+      console.log('noteEdit')
+      this.isedit = true
+      console.log(this.isedit)
+    },
+    noteShow() {
+      console.log('noteShow')
+      this.isedit = false
+      console.log(this.isedit)
     }
   }
 
