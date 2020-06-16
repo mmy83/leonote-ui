@@ -3,7 +3,7 @@
 
     <div class="note-tag">
       <ul class="note-tags">
-        <li v-for="item in currentNote.tags" :key="item.id">{{item.tag_name}} <i class="fa fa-remove"></i></li>
+        <li v-for="item in currentNote.tags" :key="item.id">{{item.tag_name}} <i @click="delTag(item)" class="fa fa-remove"></i></li>
       </ul>
       <i class="fa fa-bookmark-o" />
       &nbsp;
@@ -11,7 +11,7 @@
       <span v-if="addtag" class="add-tag"><input ref="addtag" @blur="changeSave"/></span>
       <div class="note-tools">
         <i v-if="isedit" @click="noteShow" class="fa fa-eye"></i><i v-if="!isedit" @click="noteEdit" class="fa fa-edit"></i>
-        <i class="fa fa-save"></i>
+        <i class="fa fa-save" @click="noteSave"></i>
         <i class="fa fa-paperclip"></i>
         <i class="fa fa-history"></i>
       </div>
@@ -70,6 +70,10 @@ export default {
     this.$store.dispatch('note/getNote', id)
   },
   methods: {
+    delTag(item) {
+      console.log(item)
+      console.log('delTag')
+    },
     changeAdd() {
       console.log('changeAdd')
       this.addtag = true
@@ -92,6 +96,9 @@ export default {
       console.log('noteShow')
       this.isedit = false
       console.log(this.isedit)
+    },
+    noteSave() {
+      console.log('noteSave')
     }
   }
 
