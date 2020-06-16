@@ -3,12 +3,12 @@
 
     <div class="note-tag">
       <ul class="note-tags">
-        <li v-for="item in currentNote.tags" :key="item.id">{{item.tag_name}} <i @click="delTag(item)" class="fa fa-remove"></i></li>
+        <li v-for="item in currentNote.tags" :key="item.id">{{item.tag_name}} <i @click="tagDel(item)" class="fa fa-remove"></i></li>
       </ul>
       <i class="fa fa-bookmark-o" />
       &nbsp;
-      <span v-if="!addtag" @click="changeAdd">点击添加</span>
-      <span v-if="addtag" class="add-tag"><input ref="addtag" @blur="changeSave"/></span>
+      <span v-if="!addtag" @click="tagAdd">点击添加</span>
+      <span v-if="addtag" class="add-tag"><input ref="addtag" @blur="tagSave"/></span>
       <div class="note-tools">
         <i v-if="isedit" @click="noteShow" class="fa fa-eye"></i><i v-if="!isedit" @click="noteEdit" class="fa fa-edit"></i>
         <i class="fa fa-save" @click="noteSave"></i>
@@ -70,11 +70,11 @@ export default {
     this.$store.dispatch('note/getNote', id)
   },
   methods: {
-    delTag(item) {
+    tagDel(item) {
       console.log(item)
       console.log('delTag')
     },
-    changeAdd() {
+    tagAdd() {
       console.log('changeAdd')
       this.addtag = true
       console.log(this.addtag)
@@ -82,7 +82,7 @@ export default {
         this.$refs.addtag.focus()
       })
     },
-    changeSave() {
+    tagSave() {
       console.log('changeSave')
       this.addtag = false
       console.log(this.addtag)
