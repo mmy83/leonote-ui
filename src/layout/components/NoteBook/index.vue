@@ -1,7 +1,7 @@
 <template>
   <el-scrollbar wrap-class="scrollbar-wrapper">
     <leo-menu>
-      <note-book-item v-for="notebook in notebooks" :item="notebook" />
+      <note-book-item v-for="notebook in notebooks" :item="notebook" :key="notebook.id"/>
     </leo-menu>
   </el-scrollbar>
 </template>

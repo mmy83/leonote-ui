@@ -4,7 +4,7 @@
       <div class="notebook-header">
         <i class="fa fa-book" />
         <span>笔记本</span>
-        <i class="fa fa-plus"></i>
+        <i @click="notebookAdd" class="fa fa-plus"></i>
       </div>
 <!--      <i class="fa fa-book" />-->
 <!--      <span>笔记本</span>-->
@@ -41,6 +41,9 @@ export default {
       } else {
         return true
       }
+    },
+    notebookAdd() {
+      console.log('notebookAdd')
     }
   }
 }
