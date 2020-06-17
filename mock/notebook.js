@@ -1,17 +1,17 @@
 
 const notebooks = [
-  { 'id': 1, 'notebook_name': '私人笔记1', 'childrens': [
-    { 'id': 4, 'notebook_name': '我的笔记4', 'childrens': [
-      { 'id': 5, 'notebook_name': '我的笔记5', 'childrens': [] },
-      { 'id': 6, 'notebook_name': '我的笔记6', 'childrens': [] }
+  { 'id': 1, 'notebook_name': '私人笔记1', 'count': 10, 'childrens': [
+    { 'id': 4, 'notebook_name': '我的笔记4', 'count': 40, 'childrens': [
+      { 'id': 5, 'notebook_name': '我的笔记5', 'count': 50, 'childrens': [] },
+      { 'id': 6, 'notebook_name': '我的笔记6', 'count': 60, 'childrens': [] }
     ] }
   ]
   },
-  { 'id': 2, 'notebook_name': '我的笔记2', 'childrens': [] },
-  { 'id': 3, 'notebook_name': '我的笔记3', 'childrens': [
-    { 'id': 7, 'notebook_name': '我的笔记7', 'childrens': [] },
-    { 'id': 8, 'notebook_name': '我的笔记8', 'childrens': [] },
-    { 'id': 9, 'notebook_name': '我的笔记9', 'childrens': [] }
+  { 'id': 2, 'notebook_name': '我的笔记2', 'count': 20, 'childrens': [] },
+  { 'id': 3, 'notebook_name': '我的笔记3', 'count': 30, 'childrens': [
+    { 'id': 7, 'notebook_name': '我的笔记7', 'count': 70, 'childrens': [] },
+    { 'id': 8, 'notebook_name': '我的笔记8', 'count': 80, 'childrens': [] },
+    { 'id': 9, 'notebook_name': '我的笔记9', 'count': 90, 'childrens': [] }
   ]
   }
 ]

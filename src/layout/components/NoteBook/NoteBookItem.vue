@@ -2,13 +2,13 @@
   <div>
     <template v-if="!hasChild(item)">
       <li>
-        <item :isadd="item.isAdd" :title="item.notebook_name" @changeAddInput="changeAddInput(item)" @delNote="delNote(item)" @renameNotebook="renameNotebook(item)" @addChildNotebook="addChildNotebook(item)" @clickNoteBook="setCurrentNoteBook(item)"/>
+        <item :isadd="item.isAdd" :count="item.count" :title="item.notebook_name" @changeAddInput="changeAddInput(item)" @delNote="delNote(item)" @renameNotebook="renameNotebook(item)" @addChildNotebook="addChildNotebook(item)" @clickNoteBook="setCurrentNoteBook(item)"/>
       </li>
     </template>
 
     <sub-menu v-else ref="subMenu" :index="resolvePath(item)" popper-append-to-body>
       <template slot="title">
-        <item :isadd="item.isAdd" :title="item.notebook_name" @changeAddInput="changeAddInput(item)" @delNote="delNote(item)" @renameNotebook="renameNotebook(item)" @addChildNotebook="addChildNotebook(item)" @clickNoteBook="setCurrentNoteBook(item)"/>
+        <item :isadd="item.isAdd" :count="item.count" :title="item.notebook_name" @changeAddInput="changeAddInput(item)" @delNote="delNote(item)" @renameNotebook="renameNotebook(item)" @addChildNotebook="addChildNotebook(item)" @clickNoteBook="setCurrentNoteBook(item)"/>
       </template>
       <note-book-item
         v-for="child in item.childrens"

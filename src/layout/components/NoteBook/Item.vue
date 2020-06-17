@@ -53,12 +53,12 @@ export default {
   },
   watch: {
     add(value, oldValue) {
+      console.log('add :' + value)
       if (value) {
         this.$nextTick(() => {
           this.$refs.addNotebookInput.focus()
         })
       }
-      console.log('add')
     },
     rename(value, oldValue) {
       if (value) {
@@ -78,7 +78,9 @@ export default {
     },
     changeAddInput() {
       this.show = false
-      // this.add = true
+      this.add = true
+      console.log('changeAddInput rename:' + this.rename)
+      console.log('changeAddInput add:' + this.add)
       this.$emit('changeAddInput')
     },
     changeRenameInput() {
