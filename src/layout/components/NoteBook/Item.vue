@@ -51,9 +51,17 @@ export default {
       add: this.isadd
     }
   },
+  created() {
+    console.log('created :' + this.add)
+    if (this.add) {
+      this.$nextTick(() => {
+        this.$refs.addNotebookInput.focus()
+      })
+    }
+  },
   watch: {
     add(value, oldValue) {
-      console.log('add :' + value)
+      console.log('watch add :' + value)
       if (value) {
         this.$nextTick(() => {
           this.$refs.addNotebookInput.focus()
@@ -78,7 +86,7 @@ export default {
     },
     changeAddInput() {
       this.show = false
-      this.add = true
+      // this.add = true
       console.log('changeAddInput rename:' + this.rename)
       console.log('changeAddInput add:' + this.add)
       this.$emit('changeAddInput')
