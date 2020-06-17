@@ -32,8 +32,8 @@ export default [
       // mock error
       const noteres = []
 
-      for (let i in notes) {
-        if (notes[i].notebook.id == notebook_id) {
+      for (const i in notes) {
+        if (parseInt(notes[i].notebook.id) === parseInt(notebook_id)) {
           noteres.push(notes[i])
         }
 
