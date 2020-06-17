@@ -8,7 +8,8 @@
         <i class="fa fa-clock-o" />
         <span>{{item.created}}</span>
       </div>
-      <div>
+      <div class="note-list-item-summary">
+        {{item.summary}}
       </div>
     </div>
   </router-link>
